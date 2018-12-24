@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "359241795024",
+    "firebase_url": "https://horoscopeworld-ebc4b.firebaseio.com",
+    "project_id": "horoscopeworld-ebc4b",
+    "storage_bucket": "horoscopeworld-ebc4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359241795024:android:79f67ac9d9fdc6b5",
+        "android_client_info": {
+          "package_name": "com.example.kar.horoscope_world"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359241795024-cvelegj5ch7kcnf5jb7k7ejaq22n59a4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe1cnkMLMSDExp7sWctiwlZ2NEuPRFIYc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
