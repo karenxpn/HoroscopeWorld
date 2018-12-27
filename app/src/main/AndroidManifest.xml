@@ -19,7 +19,8 @@
         <activity
             android:name=".Forecast"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LogIn"></activity>
     </application>
 
 </manifest>
