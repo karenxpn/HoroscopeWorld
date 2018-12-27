@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -45,34 +44,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ///****Set Header Parameters
-        LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.header, null );
-
-
-
-        ///GlideApp.with(profilePic.getContext()).load(user.getPhotoUrl()).into(profilePic);
-        ///userName.setText(user.getDisplayName());
-        ///userEmail.setText(user.getEmail());
-        ///****
-
 
         drawerLayout = findViewById(R.id.drawer);
-
-        ImageView profilePic = findViewById(R.id.user_pic);
-        TextView userName = findViewById(R.id.user_name);
-        TextView userEmail = findViewById(R.id.user_email);
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        Log.d ( "Auth", user.getEmail() );
-        Log.d ( "Auth", user.getDisplayName());
-
         toggle = new ActionBarDrawerToggle( this, drawerLayout, R.string.open, R.string.close );
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+        ///****Set Header Parameters
         navigationView = findViewById(R.id.nav_view);
+        View view = navigationView.getHeaderView(0);
+
+
+        ImageView profilePic = view.findViewById(R.id.user_pic);
+        TextView userName = view.findViewById(R.id.user_name);
+        TextView userEmail = view.findViewById(R.id.user_email);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Log.d ( "Auth", user.getEmail() );
+        Log.d ( "Auth", user.getDisplayName());
+
+
+        GlideApp.with(profilePic.getContext()).load(user.getPhotoUrl()).into(profilePic);
+        userName.setText(user.getDisplayName());
+        userEmail.setText(user.getEmail());
+
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
