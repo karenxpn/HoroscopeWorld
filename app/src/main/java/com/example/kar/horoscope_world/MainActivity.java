@@ -60,12 +60,12 @@ public class MainActivity extends AppCompatActivity {
                                     finish();
                                 }
                             });
-
-
                 }
                 return true;
             }
         });
+
+
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference("Images");
@@ -107,28 +107,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    /*@SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.exit) {
-            AuthUI.getInstance()
-                    .signOut(this)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Intent intent = new Intent(MainActivity.this, LogIn.class );
-                            startActivity(intent);
-                            finish();
-                        }
-                    });
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }*/
-
 }
