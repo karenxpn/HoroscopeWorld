@@ -9,12 +9,19 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,7 +45,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ///****Set Header Parameters
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.header, null );
+
+
+
+        ///GlideApp.with(profilePic.getContext()).load(user.getPhotoUrl()).into(profilePic);
+        ///userName.setText(user.getDisplayName());
+        ///userEmail.setText(user.getEmail());
+        ///****
+
+
         drawerLayout = findViewById(R.id.drawer);
+
+        ImageView profilePic = findViewById(R.id.user_pic);
+        TextView userName = findViewById(R.id.user_name);
+        TextView userEmail = findViewById(R.id.user_email);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Log.d ( "Auth", user.getEmail() );
+        Log.d ( "Auth", user.getDisplayName());
+
         toggle = new ActionBarDrawerToggle( this, drawerLayout, R.string.open, R.string.close );
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
@@ -65,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference("Images");
 
@@ -78,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, col ));
         adapter = new RecyclerAdapter(this, imageList );
         recyclerView.setAdapter(adapter);
+
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

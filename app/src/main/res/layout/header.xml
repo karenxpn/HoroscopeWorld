@@ -5,24 +5,26 @@
     android:layout_height="160dp"
     android:background="@drawable/background"
     android:orientation="vertical"
+    android:id="@+id/header"
     android:padding="20dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_pic"
         android:layout_width="75dp"
         android:layout_height="75dp" />
 
     <TextView
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textStyle="bold"
-        android:text="Karen Mirakyan"/>
+        android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/user_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="karenmirakyan@gmail.com"/>
+        android:textColor="@color/white"/>
 
 
 </LinearLayout>
