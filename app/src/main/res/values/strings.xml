@@ -2,4 +2,7 @@
     <string name="app_name">HoroscopeWorld</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+    <string name="facebook_application_id" translatable="false">341268799988874</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb341268799988874</string>
 </resources>
