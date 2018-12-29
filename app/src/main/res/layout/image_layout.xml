@@ -8,8 +8,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageview"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
+        android:layout_width="88dp"
+        android:layout_height="88dp"/>
 
     <TextView
         android:id="@+id/textView"

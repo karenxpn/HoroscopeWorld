@@ -2,8 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/settings" android:title="Settings" android:icon="@drawable/ic_settings_black_24dp"/>
-    <item android:id="@+id/search" android:title="Search" android:icon="@drawable/ic_search_black_24dp"/>
+    <item android:id="@+id/language" android:title="Language" android:icon="@drawable/ic_language_black_24dp" />
     <item android:id="@+id/exit" android:title="Logout" android:icon="@drawable/ic_exit_to_app_black_24dp"/>
-    <item android:id="@+id/event" android:title="Events" android:icon="@drawable/ic_event_black_24dp"/>
-    <item android:id="@+id/favorite" android:title="Favotites" android:icon="@drawable/ic_favorite_black_24dp"/>
 </menu>

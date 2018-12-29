@@ -1,8 +1,8 @@
 package com.example.kar.horoscope_world;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -30,19 +30,13 @@ public class LogIn extends AppCompatActivity {
                 new AuthUI.IdpConfig.FacebookBuilder().build(),
                 new AuthUI.IdpConfig.GoogleBuilder().build());
 
-        if (auth.getCurrentUser() != null) {
-            Intent intent = new Intent(LogIn.this, MainActivity.class);
-            startActivity(intent);
-            finish();
 
-        } else {
-            startActivityForResult(
-                    AuthUI.getInstance()
-                            .createSignInIntentBuilder()
-                            .setAvailableProviders(providers)
-                            .build(),
-                    RC_SIGN_IN);
-        }
+        startActivityForResult(
+                AuthUI.getInstance()
+                        .createSignInIntentBuilder()
+                        .setAvailableProviders(providers)
+                        .build(),
+                RC_SIGN_IN);
     }
 
     @Override
@@ -54,7 +48,7 @@ public class LogIn extends AppCompatActivity {
 
             if (resultCode == RESULT_OK) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                Intent intent = new Intent(this, LogIn.class);
+                Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -63,5 +57,4 @@ public class LogIn extends AppCompatActivity {
             }
         }
     }
-
 }
