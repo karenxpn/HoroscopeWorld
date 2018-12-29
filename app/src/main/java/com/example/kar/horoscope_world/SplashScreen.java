@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -23,15 +24,12 @@ public class SplashScreen extends AppCompatActivity {
                 try {
                     sleep(1000);
 
-                    if ( auth.getCurrentUser() == null ) {
-                        Intent intent = new Intent(SplashScreen.this, LogIn.class);
-                        startActivity(intent);
-                    }
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    Intent intent;
 
-                    else {
-                        Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                    if ( user == null ) intent = new Intent(SplashScreen.this, LogIn.class);
+                    else                intent = new Intent(SplashScreen.this, MainActivity.class);
                         startActivity(intent);
-                    }
                     finish();
                 } catch (InterruptedException e ){
                     e.printStackTrace();
