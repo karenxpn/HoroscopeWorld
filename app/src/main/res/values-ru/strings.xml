@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Compatibility">Compatibility</string>
+    <string name="SetDefault">Set Default</string>
+    <string name="Language">Language</string>
+    <string name="LogOut">Logout</string>
+    <string name="WriteToDeveloper">Write to Developer</string>
+    <string name="SendFeedback">Send Feedback</string>
+    <string name="About">About</string>
+    <string name="Aries">Aries</string>
+    <string name="Taurus">Taurus</string>
+    <string name="Gemini">Gemini</string>
+    <string name="Cancer">Cancer</string>
+    <string name="Leo">Leo</string>
+    <string name="Virgo">Virgo</string>
+    <string name="Libra">Libra</string>
+    <string name="Scorpio">Scorpio</string>
+    <string name="Sagittarius">Sagittarius</string>
+    <string name="Capricorn">Capricorn</string>
+    <string name="Aquarius">Aquarius</string>
+    <string name="Pisces">Pisces</string>
+    <string name="ShowCompatibility">Show Compatibility</string>
+    <string name="Today">Today</string>
+    <string name="Yesterday">Yesterday</string>
+    <string name="Tomorrow">Tomorrow</string>
+    <string name="Month">Month</string>
+    <string name="Week">Week</string>
+    <string name="Year">Year</string>
+
+</resources>

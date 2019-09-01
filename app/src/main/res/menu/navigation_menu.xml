@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/compatibility" android:title="@string/Compatibility" android:icon="@drawable/ic_favorite_black_24dp"/>
+    <item android:id="@+id/favourite" android:title="@string/SetDefault" android:icon="@drawable/ic_star_black_24dp"/>
+    <item android:id="@+id/exit" android:title="@string/LogOut" android:icon="@drawable/ic_exit_to_app_black_24dp"/>
+    <item android:id="@+id/write" android:title="@string/WriteToDeveloper" android:icon="@drawable/ic_message_black_24dp"/>
+    <item android:id="@+id/feedback" android:title="@string/SendFeedback" android:icon="@drawable/ic_feedback_black_24dp"/>
+    <item android:id="@+id/about" android:title="@string/About" android:icon="@drawable/ic_chrome_reader_mode_black_24dp"/>
+
+</menu>

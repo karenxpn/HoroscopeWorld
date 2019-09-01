@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="com.kar.horoscope.view.activities.About"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/textFirst"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="Daily, Monthly Horoscope.\n All signs of the zodiac.\n Zodiac Compatibility.\n\n"/>
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/textSecond"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="Main idea of the app is to let people know what stars hold for them. Only luckiest people know it. Here you can know Your daily Horoscope.\n There are a lot of people who want to know compatibility of two zodiac signs. Here you can find most correct forecast. For our Users we made fantastic designed app. You can't find similar designed app with such accurate content.\n\n"/>
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/textThird"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="Sign in with Google Sign In and Facebook.\n Set your Default Zodiac sign.\n View what stars hold for you. Most wonderful Horoscope. 2019 is special Year for You.\n View Compatibility and know everything about you and your partner.\n Write to developer and Send feedback.\n\n"/>
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/textFourth"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="Compatibility taken from astrology.com.\n Pictures taken from pixabay.com.\n Read and enjoy your life. Hope you will be the luckiest person in the world.\n\n Russian and other languages will appear soon.\n\n"/>
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/privacyUrl"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:autoLink="web"
+            android:text="© 2019 Karen Mirakyan\n"/>
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/textFifth"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="All Rights Reserved"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
