@@ -2,6 +2,7 @@ package com.kar.horoscope.world.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,8 @@ import com.kar.horoscope.world.R
 import com.kar.horoscope.world.repository.FirebaseRepository
 import com.kar.horoscope.world.viewmodels.forecast.ForecastVMFactory
 import com.kar.horoscope.world.viewmodels.forecast.ForecastViewModel
+import com.paypal.android.sdk.d
+import com.kar.horoscope.world.util.TranslatorBackgroundTask
 
 class PostFragment : Fragment() {
 
@@ -63,6 +66,13 @@ class PostFragment : Fragment() {
         val load = view.findViewById<ProgressBar>(R.id.progressBar)
         ad_frame = view.findViewById(R.id.ad_frame)
         adView = layoutInflater.inflate(R.layout.native_ad, null) as UnifiedNativeAdView
+
+
+        ///Ynadex translate
+        val translatorBackgroundTask = TranslatorBackgroundTask()
+        val translationResult = translatorBackgroundTask.execute("Hello world", "en-ru") // Returns the translated text as a String
+        Log.d("Translation Result", translationResult.toString()) // Logs the result in Android Monitor
+        ////
 
 
         val txt = view.findViewById<JustifiedTextView>(R.id.forecastText )
