@@ -68,7 +68,7 @@ class PostFragment : Fragment() {
         adView = layoutInflater.inflate(R.layout.native_ad, null) as UnifiedNativeAdView
 
 
-        ///Ynadex translate
+        ///Yandex translate
         val translatorBackgroundTask = TranslatorBackgroundTask()
         val translationResult = translatorBackgroundTask.execute("Hello world", "en-ru") // Returns the translated text as a String
         Log.d("Translation Result", translationResult.toString()) // Logs the result in Android Monitor
@@ -97,7 +97,7 @@ class PostFragment : Fragment() {
         currentNativeAd = nativeAd
         // Set the media view. Media content will be automatically populated in the media view once
         // adView.setNativeAd() is called.
-        adView.mediaView = adView.findViewById<MediaView>(R.id.ad_media)
+        adView.mediaView = adView.findViewById(R.id.ad_media)
 
         // Set other ad assets.
         adView.headlineView = adView.findViewById(R.id.ad_headline)
