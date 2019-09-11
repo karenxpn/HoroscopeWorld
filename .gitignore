@@ -10,3 +10,12 @@
 /captures
 .externalNativeBuild
 google-services.json
+
+*.apk
+*.ap_
+*.aab
+
+# Built application files
+*.apk
+*.ap_
+*.aab
