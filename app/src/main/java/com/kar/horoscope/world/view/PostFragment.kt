@@ -67,12 +67,10 @@ class PostFragment : Fragment() {
         ad_frame = view.findViewById(R.id.ad_frame)
         adView = layoutInflater.inflate(R.layout.native_ad, null) as UnifiedNativeAdView
 
-//
 //        ///Yandex translate
-//        val translatorBackgroundTask = TranslatorBackgroundTask()
-//        val translationResult = translatorBackgroundTask.execute("Hello world", "en-ru") // Returns the translated text as a String
-//        Log.d("Translation Result", translationResult.toString()) // Logs the result in Android Monitor
-//        ////
+        val translatorBackgroundTask = TranslatorBackgroundTask()
+        val translationResult = translatorBackgroundTask.execute("Hello world", "en-ru") // Returns the translated text as a String
+        Log.d("Translation Result", translationResult.toString()) // Logs the result in Android Monitor
 
 
         val txt = view.findViewById<JustifiedTextView>(R.id.forecastText )
