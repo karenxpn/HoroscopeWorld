@@ -110,7 +110,7 @@ class MainRepository(private val context: Context) : MainService {
         val images = generateImages()
         val array = ArrayList<MainViewZodiacModel>()
 
-        for ( i in 0 until names.size) {
+        for ( i in names.indices) {
             array.add ( MainViewZodiacModel( names[i], images[i] ) )
         }
 

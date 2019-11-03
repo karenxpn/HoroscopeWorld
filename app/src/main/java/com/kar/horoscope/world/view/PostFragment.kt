@@ -21,13 +21,14 @@ import com.kar.horoscope.world.viewmodels.forecast.ForecastVMFactory
 import com.kar.horoscope.world.viewmodels.forecast.ForecastViewModel
 import com.paypal.android.sdk.d
 import com.kar.horoscope.world.util.TranslatorBackgroundTask
+import java.util.*
 
 class PostFragment : Fragment() {
 
-    val ADMOB_AD_UNIT_ID = "ca-app-pub-9944947259907049/5708896215"
-    val ADMOB_APP_ID = "ca-app-pub-9944947259907049~7137969242"
+    private val ADMOB_AD_UNIT_ID = "ca-app-pub-9944947259907049/5708896215"
+    private val ADMOB_APP_ID = "ca-app-pub-9944947259907049~7137969242"
     var currentNativeAd: UnifiedNativeAd? = null
-    lateinit var ad_frame: FrameLayout
+    private lateinit var ad_frame: FrameLayout
     lateinit var adView: UnifiedNativeAdView
 
 
@@ -67,10 +68,6 @@ class PostFragment : Fragment() {
         ad_frame = view.findViewById(R.id.ad_frame)
         adView = layoutInflater.inflate(R.layout.native_ad, null) as UnifiedNativeAdView
 
-//        ///Yandex translate
-        val translatorBackgroundTask = TranslatorBackgroundTask()
-        val translationResult = translatorBackgroundTask.execute("Hello world", "en-ru") // Returns the translated text as a String
-        Log.d("Translation Result", translationResult.toString()) // Logs the result in Android Monitor
 
 
         val txt = view.findViewById<JustifiedTextView>(R.id.forecastText )

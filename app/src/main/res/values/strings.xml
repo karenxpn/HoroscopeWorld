@@ -34,6 +34,7 @@
     <string name="Month">Month</string>
     <string name="Week">Week</string>
     <string name="Year">Year</string>
+    <string name="coin">Coin</string>
 
     <string-array name="Zodiacs">
         <item>@string/Aries</item>
