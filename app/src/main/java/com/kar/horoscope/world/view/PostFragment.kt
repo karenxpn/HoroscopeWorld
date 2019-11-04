@@ -11,25 +11,25 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.codesgood.views.JustifiedTextView
 import com.google.android.gms.ads.*
-import com.google.android.gms.ads.formats.MediaView
 import com.google.android.gms.ads.formats.NativeAdOptions
 import com.google.android.gms.ads.formats.UnifiedNativeAd
 import com.google.android.gms.ads.formats.UnifiedNativeAdView
 import com.kar.horoscope.world.R
 import com.kar.horoscope.world.repository.FirebaseRepository
+import com.kar.horoscope.world.util.TranslatorBackgroundTask
 import com.kar.horoscope.world.viewmodels.forecast.ForecastVMFactory
 import com.kar.horoscope.world.viewmodels.forecast.ForecastViewModel
-import com.paypal.android.sdk.d
-import com.kar.horoscope.world.util.TranslatorBackgroundTask
 import java.util.*
+
 
 class PostFragment : Fragment() {
 
     private val ADMOB_AD_UNIT_ID = "ca-app-pub-9944947259907049/5708896215"
     private val ADMOB_APP_ID = "ca-app-pub-9944947259907049~7137969242"
-    var currentNativeAd: UnifiedNativeAd? = null
-    private lateinit var ad_frame: FrameLayout
-    lateinit var adView: UnifiedNativeAdView
+    private var currentNativeAd: UnifiedNativeAd? = null
+    private lateinit var adFrame: FrameLayout
+    private lateinit var adView: UnifiedNativeAdView
+    private lateinit var titleForSearch: String
 
 
     lateinit var title: String
@@ -55,6 +55,7 @@ class PostFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, parent: ViewGroup?, savedInstanceState: Bundle?): View? {
         title = activity?.title.toString()
+        titleForSearch = title
         return inflater.inflate( R.layout.content, parent, false )
     }
 
@@ -65,7 +66,7 @@ class PostFragment : Fragment() {
         val arguments = arguments
         val pageNumber = arguments?.getInt( ARG_PAGE )
         val load = view.findViewById<ProgressBar>(R.id.progressBar)
-        ad_frame = view.findViewById(R.id.ad_frame)
+        adFrame = view.findViewById(R.id.ad_frame)
         adView = layoutInflater.inflate(R.layout.native_ad, null) as UnifiedNativeAdView
 
 
@@ -75,13 +76,39 @@ class PostFragment : Fragment() {
         MobileAds.initialize(context, ADMOB_APP_ID)
         refreshAd()
 
+        if ( Locale.getDefault().displayLanguage == "русский" ) {
+            Log.d ( "title = ", title )
+            changeTitle(title)
+        }
 
         load.visibility = View.VISIBLE
-        viewModel.getFirebaseData(title, pageNumber)
-            .subscribe {
-                load.visibility = View.GONE
-                txt.text = it.text
-            }
+        viewModel.getFirebaseData(titleForSearch, pageNumber)
+                .subscribe {
+                    if ( Locale.getDefault().displayLanguage == "русский" ) {
+                        val translatorBackgroundTask = TranslatorBackgroundTask()
+                        val translationResult = translatorBackgroundTask.execute(it.text, "en-ru")
+                        Log.d( "The fuck is ", translationResult.get().removeRange(0, 36))
+                        it.text = translationResult.get().removeRange(0, 36)
+                    }
+
+                    load.visibility = View.GONE
+                    txt.text = it.text
+                }
+    }
+
+    private fun changeTitle(title: String ) {
+        if ( title == "Овен" ) titleForSearch = "Aries"
+        if ( title == "Телец" ) titleForSearch = "Taurus"
+        if ( title == "Близнецы" ) titleForSearch = "Gemini"
+        if ( title == "Рак" ) titleForSearch = "Cancer"
+        if ( title == "Лев" ) titleForSearch = "Leo"
+        if ( title == "Дева" ) titleForSearch = "Virgo"
+        if ( title == "Весы" ) titleForSearch = "Libra"
+        if ( title == "Скорпион" ) titleForSearch = "Scorpio"
+        if ( title == "Стрелец" ) titleForSearch = "Sagittarius"
+        if ( title == "Козерог" ) titleForSearch = "Capricorn"
+        if ( title == "Водолей" ) titleForSearch = "Aquarius"
+        if ( title == "Рыбы" ) titleForSearch = "Pisces"
     }
 
 
@@ -188,8 +215,8 @@ class PostFragment : Fragment() {
             // OnUnifiedNativeAdLoadedListener implementation.
 
             populateUnifiedNativeAdView(unifiedNativeAd, adView)
-            ad_frame.removeAllViews()
-            ad_frame.addView(adView)
+            adFrame.removeAllViews()
+            adFrame.addView(adView)
         }
 
 

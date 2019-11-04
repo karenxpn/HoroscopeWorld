@@ -19,17 +19,6 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
 
-        val deviceLanguage = Locale.getDefault().displayLanguage
-        if ( deviceLanguage == "ru" ) {
-            val config = resources.configuration
-            val locale = Locale(deviceLanguage)
-            Locale.setDefault(locale)
-            config.locale = locale
-            resources.updateConfiguration(config, resources.displayMetrics)
-        }
-
-
-
         val user = FirebaseAuth.getInstance().currentUser
 
         val preference = getSharedPreferences("Preference", Context.MODE_PRIVATE)
