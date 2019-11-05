@@ -23,6 +23,7 @@ class Forecast : AppCompatActivity() {
         val intent = intent
         val id = intent.getIntExtra( "Title", 0 )
         val list = resources.getStringArray(R.array.Zodiacs).toList()
+        titleForSearch = list[id]
         title = list[id]
 
 
