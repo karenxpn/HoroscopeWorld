@@ -1,6 +1,7 @@
 package com.kar.horoscope.world.repository
 
 import android.annotation.SuppressLint
+import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kar.horoscope.world.models.DayModel
 import com.kar.horoscope.world.service.FirebaseService
@@ -37,6 +38,7 @@ class FirebaseRepository : FirebaseService {
     @SuppressLint("SimpleDateFormat")
     override fun getToday(): String {
         val calendar = Calendar.getInstance()
+        calendar.set(Calendar.YEAR, 2019 )
         val dateFormat = SimpleDateFormat ( "dd/MM/yyyy" )
 
         return dateFormat.format( calendar.time )
@@ -46,6 +48,7 @@ class FirebaseRepository : FirebaseService {
     override fun getYesterday(): String {
         val calendar = Calendar.getInstance()
         calendar.add ( Calendar.DATE, -1 )
+        calendar.set(Calendar.YEAR, 2019 )
 
         val dateFormat = SimpleDateFormat ( "dd/MM/yyyy" )
 
@@ -58,8 +61,10 @@ class FirebaseRepository : FirebaseService {
 
         val calendar = Calendar.getInstance()
         calendar.add ( Calendar.DATE, +1 )
+        calendar.set(Calendar.YEAR, 2019 )
 
         val dateFormat = SimpleDateFormat ( "dd/MM/yyyy" )
+        Log.d ( "the date is", dateFormat.format(calendar.time) )
 
         return dateFormat.format( calendar.time )
     }
