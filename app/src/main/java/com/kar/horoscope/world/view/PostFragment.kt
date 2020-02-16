@@ -15,7 +15,7 @@ import com.google.android.gms.ads.formats.NativeAdOptions
 import com.google.android.gms.ads.formats.UnifiedNativeAd
 import com.google.android.gms.ads.formats.UnifiedNativeAdView
 import com.kar.horoscope.world.R
-import com.kar.horoscope.world.repository.FirebaseRepository
+import com.kar.horoscope.world.repository.DataRepository
 import com.kar.horoscope.world.util.TranslatorBackgroundTask
 import com.kar.horoscope.world.viewmodels.forecast.ForecastVMFactory
 import com.kar.horoscope.world.viewmodels.forecast.ForecastViewModel
@@ -30,10 +30,11 @@ class PostFragment : Fragment() {
     private lateinit var adFrame: FrameLayout
     private lateinit var adView: UnifiedNativeAdView
     private lateinit var titleForSearch: String
+    private lateinit var load: ProgressBar
 
 
     lateinit var title: String
-    val repository = FirebaseRepository()
+    val repository = DataRepository()
     val viewModel: ForecastViewModel by lazy {
         ViewModelProviders.of(this,
             ForecastVMFactory(repository)
@@ -65,7 +66,7 @@ class PostFragment : Fragment() {
 
         val arguments = arguments
         val pageNumber = arguments?.getInt( ARG_PAGE )
-        val load = view.findViewById<ProgressBar>(R.id.progressBar)
+        load = view.findViewById(R.id.progressBar)
         adFrame = view.findViewById(R.id.ad_frame)
         adView = layoutInflater.inflate(R.layout.native_ad, null) as UnifiedNativeAdView
 

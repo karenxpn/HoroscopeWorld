@@ -2,29 +2,29 @@ package com.kar.horoscope.world.viewmodels.forecast
 
 import androidx.lifecycle.ViewModel
 import com.kar.horoscope.world.models.DayModel
-import com.kar.horoscope.world.service.FirebaseService
+import com.kar.horoscope.world.service.DataService
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class ForecastViewModel( private val firebaseService: FirebaseService) : ViewModel() {
+class ForecastViewModel( private val dataService: DataService) : ViewModel() {
 
     fun getFirebaseData(title: String, pageNumber: Int? ): Observable<DayModel> {
         when (pageNumber) {
-            1 -> return firebaseService
-                .getData(firebaseService.getYesterday(), title, "date" )
+            1 -> return dataService
+                .getData(dataService.getYesterday(), title)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-            2 -> return firebaseService
-                .getData(firebaseService.getToday(), title, "date" )
+            2 -> return dataService
+                .getData(dataService.getToday(), title)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-            3 -> return firebaseService
-                .getData(firebaseService.getTomorrow(), title, "date" )
+            3 -> return dataService
+                .getData(dataService.getTomorrow(), title)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-            4 -> return firebaseService
-                .getData(firebaseService.getMonth(), title, "month" )
+            4 -> return dataService
+                .getData(dataService.getMonth(), title)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
         }

@@ -1,9 +1,11 @@
 package com.kar.horoscope.world.view.activities
 
 import android.annotation.SuppressLint
+import android.os.AsyncTask
 import androidx.lifecycle.ViewModelProviders
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.google.android.material.navigation.NavigationView
 import androidx.drawerlayout.widget.DrawerLayout
@@ -21,6 +23,8 @@ import com.kar.horoscope.world.viewmodels.main.MainViewModel
 import com.kar.horoscope.world.viewmodels.main.ViewModelFactory
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jsoup.Jsoup
+import java.lang.Exception
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
